@@ -90,4 +90,14 @@ class LoginRequest extends FormRequest
     {
         return Str::lower($this->input('email')).'|'.$this->ip();
     }
+
+    public function messages(){
+        return [
+            'email.required' => __('Emai1 Required'),
+            'email.email' => __('Email Email'),
+            'email.unique:users' => __('Email Unique Users'),
+            'password.required' => __('password required'),
+
+        ];
+    }
 }
