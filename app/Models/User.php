@@ -31,7 +31,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         UserEnum::PASSWORD,
-        UserEnum::REMMEMBER_TOKEN,
+        UserEnum::REMEMBER_TOKEN,
     ];
 
     /**

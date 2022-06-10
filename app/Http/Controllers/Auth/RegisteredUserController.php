@@ -7,8 +7,9 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\Http\Request;
+
+use App\Enums\User as EnumUser;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -34,10 +35,10 @@ class RegisteredUserController extends Controller
 
 
         $user = User::create([
-            'name' => $request->name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            EnumUser::NAME      => $request->name,
+            EnumUser::LAST_NAME => $request->last_name,
+            EnumUser::EMAIL     => $request->email,
+            EnumUser::PASSWORD  => Hash::make($request->password),
         ]);
 
         event(new Registered($user));

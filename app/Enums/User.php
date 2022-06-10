@@ -10,7 +10,7 @@ class User extends BaseEnum
     const EMAIL           = 'email';
     const EMAIL_VERIFY    = 'email_verify';
     const PASSWORD        = 'password';
-    const REMMEMBER_TOKEN = 'remmeber_token';
+    const REMEMBER_TOKEN  = 'remember_token';
     const PASSWORD_RESTS  = 'password_resets';
     const TOKEN           = 'token';
 }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use App\Enums\User as UserEnum;
+use PharIo\Manifest\Email;
 
 class LoginRequest extends FormRequest
 {
@@ -29,8 +31,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            UserEnum::EMAIL    => ['required', 'string', 'email'],
+            UserEnum::PASSWORD => ['required', 'string'],
         ];
     }
 
@@ -45,11 +47,11 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (! Auth::attempt($this->only(UserEnum::EMAIL,UserEnum::PASSWORD), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                UserEnum::EMAIL => trans('auth.failed'),
             ]);
         }
 
@@ -74,7 +76,7 @@ class LoginRequest extends FormRequest
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
+            UserEnum::EMAIL => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -93,10 +95,10 @@ class LoginRequest extends FormRequest
 
     public function messages(){
         return [
-            'email.required' => __('Emai1 Required'),
-            'email.email' => __('Email Email'),
-            'email.unique:users' => __('Email Unique Users'),
-            'password.required' => __('password required'),
+            UserEnum::EMAIL.'.required'     => __('auth.main.required'   ,['text'=>'ایمیل']),
+            UserEnum::EMAIL.'.email'        => __('auth.main.required'   ,['text'=>'ایمیل']),
+            UserEnum::EMAIL.'.unique:users' => __('auth.main.unique'     ,['text'=>'ایمیل']),
+            UserEnum::PASSWORD.'.required'  => __('auth.main.required'   ,['text'=>'پسورد']),
 
         ];
     }
