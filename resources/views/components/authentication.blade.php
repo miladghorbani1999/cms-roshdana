@@ -3,9 +3,9 @@
         <!-- Right Side Title -->
         <div class="col-12 col-md-3 register-right">
 
-            <h3>{{__('main.welcome')}}</h3>
-            <p>{{__('main.quick_register')}}</p>
-            <input onclick="window.location.href='{{$url}}'" type="submit" name="" value="{{__('main.login_or_register',['text'=>$type])}}"><br>
+            <h3>خوش آمدید</h3>
+            <p>تنها در چند ثانیه عضو شوید.</p>
+            <input onclick="window.location.href='{{$url}}'" type="submit" name="" value="{{$type}}  سایت "><br>
         </div>
         <!-- /Right Side Title -->
         <!-- Left Side Forms -->

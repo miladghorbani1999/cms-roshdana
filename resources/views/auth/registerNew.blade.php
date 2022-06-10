@@ -8,37 +8,37 @@
     {{ route('login') }}
     @endslot
     @slot('type')
-    ورود
+    ورود به
     @endslot
     @slot('text_main')
-    <h3 class="register-heading">{{__('main.register_user')}}</h3>
+    <h3 class="register-heading">ثبت نام کاربر</h3>
     <form action="{{ route('register') }}" method="POST">
         @csrf
         <div class="row register-form mx-auto">
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="* {{__('auth.name')}}"   autofocus >
+                    <input type="text" class="form-control" name="name" placeholder="* نام"   autofocus >
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name='last_name' placeholder="* {{__('auth.last_name')}}" >
+                    <input type="text" class="form-control" name='last_name' placeholder="* نام خانوادگی" >
                 </div>
 
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="{{__('auth.email')}} *"  >
+                    <input type="email" class="form-control" name="email" placeholder="ایمیل *"  >
 
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="{{__('auth.password')}} *"  autocomplete="new-password">
+                    <input type="password" class="form-control" name="password" placeholder="رمز *"  autocomplete="new-password">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="{{__('auth.confirm_password')}} *" >
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="تکرار رمز عبور *" >
                 </div>
 
             </div>
             <div class="col-12">
-                <input type="submit" class="btnRegister col-12 mt-3" value="{{__('main.register')}}">
+                <input type="submit" class="btnRegister col-12 mt-3" value="عضویت">
             </div>
             <div class="col-12 mt-2">
                 @if($errors->any())
