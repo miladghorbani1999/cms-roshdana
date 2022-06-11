@@ -1,6 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.main',[
+    'title'=>'صفحه ورود'
+])
 
-@section('title', 'صفحه ورود')
+{{-- @section('title', 'صفحه ورود') --}}
 
 @section('content')
 @component('components.authentication')
@@ -18,18 +20,32 @@
 
             <div class="col-12 col-md-12">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="پست الکترونیکی *"  required>
+                    <input type="email" class="form-control" name="email" placeholder="پست الکترونیکی *" value="{{old('email')}}"  >
 
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="رمز *" required autocomplete="new-password">
+                    <input type="password" class="form-control" name="password" placeholder="رمز *" autocomplete="new-password">
                 </div>
                 <div class="form-group">
                     <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         فراموشی رمز عبور >
                     </a>
                 </div>
-                <input type="submit" class="btnRegister mt-2 col-12" value="ورود">
+                <div class="col-12">
+                    <input type="submit" class="btnRegister mt-2 col-12" value="ورود">
+                </div>
+                <div class="col-12 ">
+                    @if($errors->any())
+
+                        <div class="alert alert-danger col-12 mt-90">
+
+                            @foreach($errors->all() as $key => $error)
+                                {{ $error }}<br/>
+                            @endforeach
+                        </div>
+                    @endif
+
+                </div>
             </div>
         </div>
     </form>

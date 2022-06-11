@@ -149,3 +149,6 @@ input[type=email], input[type=password] {
     margin-bottom: -15%;
     color: #495057;
 }
+.mt-90{
+    margin-top: 90px !important;
+}

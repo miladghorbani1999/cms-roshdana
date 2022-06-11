@@ -1,6 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.main',[
+    'title'=>'صفحه ثبت نام'
+])
 
-@section('title', 'صفحه ثبت نام')
+{{-- @section('title', 'صفحه ثبت نام') --}}
 
 @section('content')
 @component('components.authentication')
@@ -17,16 +19,16 @@
         <div class="row register-form mx-auto">
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="* نام"   autofocus >
+                    <input type="text" class="form-control" name="name" placeholder="* نام" value="{{old('name')}}"  autofocus >
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name='last_name' placeholder="* نام خانوادگی" >
+                    <input type="text" class="form-control" name='last_name' value="{{old('last_name')}}" placeholder="* نام خانوادگی" >
                 </div>
 
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="ایمیل *"  >
+                    <input type="email" class="form-control" name="email" value="{{old('email')}}" placeholder="ایمیل *"  >
 
                 </div>
                 <div class="form-group">
