@@ -22,6 +22,7 @@ class User extends Authenticatable
         UserEnum::LAST_NAME,
         UserEnum::EMAIL,
         UserEnum::PASSWORD,
+        UserEnum::LAST_LOGIN,
     ];
 
     /**
