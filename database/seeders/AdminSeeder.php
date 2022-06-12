@@ -18,13 +18,11 @@ class AdminSeeder extends Seeder
             [
                 AdminEnum::NATIONAL_CODE => '1272995178',
                 AdminEnum::ACTIVITY => true,
-                AdminEnum::MOBILE => '09017911495',
                 AdminEnum::USER_ID => '1',
             ],
             [
                 AdminEnum::NATIONAL_CODE => '1100466691',
                 AdminEnum::ACTIVITY => false,
-                AdminEnum::MOBILE => '09218749158',
                 AdminEnum::USER_ID => '1',
             ]
         ];

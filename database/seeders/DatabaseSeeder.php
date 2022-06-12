@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Author;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,11 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
-
-        // // User::factory()->make([
-        // //     'name' => 'میلاد',
-        // // ]);
-        // Admin::factory(10)->create();
+        User::factory(10)->create();
+        Admin::factory(10)->create();
+        Author::factory(10)->create();
     }
 }

@@ -17,11 +17,9 @@ class AdminFactory extends Factory
      */
     public function definition()
     {
-        $phone_number = "09".$this->faker->numerify('##########');
         return [
             AdminEnum::NATIONAL_CODE  => $this->faker->numerify('#########'),
             AdminEnum::ACTIVITY       => true,
-            AdminEnum::MOBILE          => $phone_number,
             AdminEnum::USER_ID   => 1,
         ];
     }

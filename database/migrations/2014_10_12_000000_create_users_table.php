@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string(UserEnum::NAME);
             $table->string(UserEnum::LAST_NAME);
+            $table->string(UserEnum::MOBILE,'13')->nullable();
             $table->string(UserEnum::EMAIL)->unique();
             $table->timestamp(UserEnum::EMAIL_VERIFY)->nullable();
             $table->string(UserEnum::PASSWORD);

@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                 UserEnum::EMAIL => 'milad@gmail.com',
                 UserEnum::EMAIL_VERIFY => now(),
                 UserEnum::PASSWORD => '12345678',
+                UserEnum::MOBILE => '09218749158',
                 UserEnum::REMEMBER_TOKEN => Str::random(10),
             ],
             [
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 UserEnum::EMAIL => 'ali@gmail.com',
                 UserEnum::EMAIL_VERIFY => now(),
                 UserEnum::PASSWORD => '12345678',
+                UserEnum::MOBILE => '09218749158',
                 UserEnum::REMEMBER_TOKEN => Str::random(10),
             ]
         ];

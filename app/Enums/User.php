@@ -13,5 +13,6 @@ class User extends BaseEnum
     const REMEMBER_TOKEN  = 'remember_token';
     const PASSWORD_RESTS  = 'password_resets';
     const TOKEN           = 'token';
+    const MOBILE          = 'mobile';
     const LAST_LOGIN      = 'last_login';
 }
