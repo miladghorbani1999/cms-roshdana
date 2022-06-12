@@ -15,8 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-        Admin::factory(10)->create();
+        // User::factory(10)->create();
 
+        // // User::factory()->make([
+        // //     'name' => 'میلاد',
+        // // ]);
+        // Admin::factory(10)->create();
     }
 }

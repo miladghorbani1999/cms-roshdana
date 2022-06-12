@@ -16,12 +16,12 @@ return new class extends Migration
     {
         Schema::create(AdminEnum::TABLE,function(Blueprint $table){
             $table->id();
-            $table->string(AdminEnum::NATIONAL_CODE,'9')->unique();
+            $table->string(AdminEnum::NATIONAL_CODE,'10')->unique();
             $table->boolean(AdminEnum::ACTIVITY);
             $table->string(AdminEnum::MOBILE,'13');
             $table->timestamps();
-
-            $table->foreign(AdminEnum::USER_ID)->on(AdminEnum::TABLE)->references(UserEnum::TABLE);
+            $table->unsignedBigInteger(AdminEnum::USER_ID);
+            $table->foreign(AdminEnum::USER_ID)->on(UserEnum::TABLE)->references(UserEnum::ID);
         });
     }
 
