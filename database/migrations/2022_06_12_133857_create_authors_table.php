@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum(AuthorEnum::LEVEL,AuthorEnum::STATUSES)->default(AuthorEnum::JUNIOR);
             $table->unsignedBigInteger(AuthorEnum::USER_ID);
             $table->timestamps();
-            $table->foreign(AuthorEnum::USER_ID)->on(UserEnum::TABLE)->references(UserEnum::ID);
+            $table->foreign(AuthorEnum::USER_ID)->on(UserEnum::TABLE)->references(UserEnum::ID)->unique();
         });
     }
 
