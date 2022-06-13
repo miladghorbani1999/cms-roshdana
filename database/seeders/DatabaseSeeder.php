@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             AdminSeeder::class,
-            AuthorSeeder::class
+            AuthorSeeder::class,
+            ImageSeeder::class
         ]);
         // User::factory(1)->create();
         // Admin::factory(10)->create();
