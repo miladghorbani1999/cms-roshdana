@@ -14,26 +14,8 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        $authors = [
-            [
-                AuthorEnum::CITY => 'اصفهان',
-                AuthorEnum::LEVEL => AuthorEnum::JUNIOR,
-                AuthorEnum::USER_ID => '1',
-            ],
-            [
-                AuthorEnum::CITY => 'تهران',
-                AuthorEnum::LEVEL => AuthorEnum::SENIOR,
-                AuthorEnum::USER_ID => '2',
-            ],
-            [
-                AuthorEnum::CITY => 'شیراز',
-                AuthorEnum::LEVEL => AuthorEnum::MIDLEVEL,
-                AuthorEnum::USER_ID => '3',
-            ]
-        ];
-
-        foreach ($authors as $author) {
-            AuthorModel::create($author);
-        }
+        AuthorModel::factory()
+                ->count(3)
+                ->create();
     }
 }

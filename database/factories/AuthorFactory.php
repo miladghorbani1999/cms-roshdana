@@ -18,9 +18,9 @@ class AuthorFactory extends Factory
     {
         return [
 
-            AuthorEnum::CITY  => $this->faker->text('50'),
+            AuthorEnum::CITY  => $this->faker->city(),
             AuthorEnum::LEVEL       => true,
-            AuthorEnum::USER_ID     => 1,
+            AuthorEnum::USER_ID     => $this->faker->unique()->numberBetween(1,10),
         ];
     }
 }

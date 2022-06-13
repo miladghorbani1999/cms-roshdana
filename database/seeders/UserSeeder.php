@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
-use App\Enums\User as UserEnum;
 use App\Models\User as UserModel;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 class UserSeeder extends Seeder
 {
     /**
@@ -16,29 +15,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admins = [
-            [
-                UserEnum::NAME=> 'میلاد',
-                UserEnum::LAST_NAME => 'قربانی',
-                UserEnum::EMAIL => 'milad@gmail.com',
-                UserEnum::EMAIL_VERIFY => now(),
-                UserEnum::PASSWORD => '12345678',
-                UserEnum::MOBILE => '09218749158',
-                UserEnum::REMEMBER_TOKEN => Str::random(10),
-            ],
-            [
-                UserEnum::NAME=> 'علی',
-                UserEnum::LAST_NAME => 'موسوی',
-                UserEnum::EMAIL => 'ali@gmail.com',
-                UserEnum::EMAIL_VERIFY => now(),
-                UserEnum::PASSWORD => '12345678',
-                UserEnum::MOBILE => '09218749158',
-                UserEnum::REMEMBER_TOKEN => Str::random(10),
-            ]
-        ];
-
-        foreach ($admins as $admin) {
-            UserModel::create($admin);
-        }
+        $name=['علی','حسن','حسین','عرفان','محسن','سعید','میلاد','جواد'];
+        $last_name=['موسوی','محمدی','صادقی','احمدی','محسنی','اکبری','قربانی','مدنیان'];
+        UserModel::factory()
+                ->count(10)
+                ->state(new Sequence(
+                    fn ($sequence) => ['name' => $name[array_rand($name)],'last_name'=>$last_name[array_rand($last_name)]],
+                ))
+                ->create();
     }
 }
