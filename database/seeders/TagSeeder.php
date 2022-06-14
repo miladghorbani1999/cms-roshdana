@@ -17,9 +17,11 @@ class TagSeeder extends Seeder
     public function run()
     {
         $names = [
-            'تگ اول',
-            'تگ دوم',
-            'تگ سوم',
+            'اخبارفوری',
+            'ایران',
+            'جنجالی',
+            'طنز',
+            'برنامه نویسی',
         ];
 
         foreach ($names as $key => $name) {
