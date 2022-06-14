@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             VideoSeeder::class,
             CategorySeeder::class,
+            CommentSeeder::class,
         ]);
         // User::factory(1)->create();
         // Admin::factory(10)->create();
