@@ -63,4 +63,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
+
+    public function author()
+    {
+        return $this->hasOne(Author::class);
+    }
 }

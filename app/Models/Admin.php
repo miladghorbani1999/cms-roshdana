@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use App\Enums\Admin as AdminEnum;
+use App\Enums\User as UserEnum;
+use App\Enums\video as videoEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +22,20 @@ class Admin extends Model
         AdminEnum::ACTIVITY,
         AdminEnum::USER_ID,
     ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function videos(){
+        return $this->hasManyThrough(Video::class, User::class, UserEnum::ID, VideoEnum::USER_ID, AdminEnum::USER_ID);
+    }
 
 }
