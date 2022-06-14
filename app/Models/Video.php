@@ -9,6 +9,8 @@ use App\Enums\User as UserEnum;
 use App\Enums\Author as AuthorEnum;;
 use App\Enums\Video as VideoEnum;
 use App\Enums\Admin as AdminEnum;
+use App\Enums\Image as ImageEnum;
+
 class Video extends Model
 {
     use HasFactory;
@@ -29,6 +31,10 @@ class Video extends Model
 
     public function author(){
         return $this->hasOneThrough(Author::class, User::class, UserEnum::ID, AuthorEnum::USER_ID, AdminEnum::USER_ID);
+    }
+
+    public function Image(){
+        return $this->morphOne(Image::class, ImageEnum::IMAGEABLE);
     }
 
 }

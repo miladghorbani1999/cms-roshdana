@@ -20,7 +20,7 @@ class Image extends Model
         ImageEnum::IMAGEABLE_TYPE,
     ];
 
-    public function user(){
+    public function imageable(){
         return $this->morphTo();
     }
 }
