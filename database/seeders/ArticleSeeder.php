@@ -30,7 +30,7 @@ class ArticleSeeder extends Seeder
         foreach ($titles as $key => $title) {
             ArticleModel::factory()
                     ->state(new Sequence(
-                        fn ($sequence) => [ArticleEnum::TITLE => $title,ArticleEnum::DESCRIPTION=>$descriptions[$key]],
+                        fn ($sequence) => [ArticleEnum::TITLE => $title,ArticleEnum::DESCRIPTION=>$descriptions[$key],ArticleEnum::USER_ID=>$key+1],
                     ))
                     ->create();
         }
