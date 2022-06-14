@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\Comment as CommentEnum;
+use App\Enums\Tag as TagEnum;
 class Article extends Model
 {
     use HasFactory;
@@ -24,5 +25,9 @@ class Article extends Model
         return $this->morphMany(Comment::class, CommentEnum::COMMENTABLE);
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, TagEnum::TABLE_ARTICLE_TAG, TagEnum::TAG_ID, TagEnum::ARTICLE_ID);
+    }
 
 }

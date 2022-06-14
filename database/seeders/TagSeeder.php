@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Enums\Tag as TagEnum;
+use App\Models\Tag as TagModel;
+use Illuminate\Database\Eloquent\Factories\Sequence;
+
+class TagSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $names = [
+            'تگ اول',
+            'تگ دوم',
+            'تگ سوم',
+        ];
+
+        foreach ($names as $key => $name) {
+            TagModel::factory()
+                    ->state(new Sequence(
+                        fn ($sequence) => [TagEnum::NAME => $name],
+                    ))
+                    ->create();
+        }
+    }
+}
