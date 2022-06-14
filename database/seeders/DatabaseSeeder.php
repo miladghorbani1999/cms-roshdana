@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Admin;
-use App\Models\Author;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminSeeder::class,
             AuthorSeeder::class,
-            ImageSeeder::class
+            ImageSeeder::class,
+            ArticleSeeder::class
         ]);
         // User::factory(1)->create();
         // Admin::factory(10)->create();
