@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AuthorSeeder::class,
             ImageSeeder::class,
-            ArticleSeeder::class
+            ArticleSeeder::class,
+            VideoSeeder::class,
         ]);
         // User::factory(1)->create();
         // Admin::factory(10)->create();
