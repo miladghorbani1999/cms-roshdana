@@ -23,17 +23,17 @@ class CommentSeeder extends Seeder
             'نظر سوم',
         ];
         $commentable_id = [
-            'App\video',
-            'App\Article',
+            'App\video', //اصلاح شود!
+            'App\Article', //اصلاح شود!
         ];
         foreach ($comments as $key => $comment) {
             CommentModel::factory()
                     ->state(new Sequence(
                         fn ($sequence) => [
                             CommentEnum::BODY => $comment,
-                            CommentEnum::COMMENTABLE_ID=>$key+1,
-                            CommentEnum::COMMENTABLE_TYPE=>$commentable_id[array_rand($commentable_id)],
-                            CommentEnum::USER_ID=>$key+1
+                            CommentEnum::COMMENTABLE_ID => $key+1,
+                            CommentEnum::COMMENTABLE_TYPE => $commentable_id[array_rand($commentable_id)],
+                            CommentEnum::USER_ID => $key+1
                         ],
                     ))
                     ->create();

@@ -16,11 +16,12 @@ return new class extends Migration
     {
         Schema::create(AuthorEnum::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->string(AuthorEnum::CITY);
-            $table->enum(AuthorEnum::LEVEL,AuthorEnum::STATUSES)->default(AuthorEnum::JUNIOR);
             $table->unsignedBigInteger(AuthorEnum::USER_ID);
+            $table->string(AuthorEnum::CITY);
+            $table->enum('level', ['junior', 'mid-level', 'senior'])->default('junior');
             $table->timestamps();
-            $table->foreign(AuthorEnum::USER_ID)->on(UserEnum::TABLE)->references(UserEnum::ID)->unique();
+
+            $table->foreign(AuthorEnum::USER_ID)->references(UserEnum::ID)->on(UserEnum::TABLE);
         });
     }
 

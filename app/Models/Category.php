@@ -19,6 +19,8 @@ class Category extends Model
         CategoryEnum::PARENT_ID
     ];
 
+    public $timestamps = false;
+
 
     public function parent()
     {

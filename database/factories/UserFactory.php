@@ -19,7 +19,7 @@ class UserFactory extends Factory
     {
         $phone_number = "09".$this->faker->numerify('##########');
         return[
-            UserEnum::NAME           => $this->faker->name(),
+            UserEnum::FirstName      => $this->faker->name(),
             UserEnum::LAST_NAME      => $this->faker->lastName(),
             UserEnum::EMAIL          => $this->faker->unique()->safeEmail(),
             UserEnum::EMAIL_VERIFY   => now(),

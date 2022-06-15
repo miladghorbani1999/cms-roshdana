@@ -16,14 +16,19 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger(Video::USER_ID);
             $table->string(Video::TITLE, 100);
             $table->string(Video::DESCRIPTION);
-            $table->integer(Video::DURATION);
+            $table->unsignedInteger(Video::DURATION);
             $table->timestamp(Video::RELEASE_AT);
-            $table->string(Video::UID, 100);
-            $table->unsignedBigInteger(Video::USER_ID);
-            $table->foreign(Video::USER_ID)->references('id')->on('users');
+            $table->string(Video::UID, 100)->unique();
+            $table->string('main_image')->nullable();
             $table->timestamps();
+
+            $table->foreign(Video::USER_ID)
+                ->references('id')
+                ->on('users');
+
         });
     }
 

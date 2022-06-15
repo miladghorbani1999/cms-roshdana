@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create(UserEnum::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->string(UserEnum::NAME);
+            $table->string(UserEnum::FirstName);
             $table->string(UserEnum::LAST_NAME);
             $table->string(UserEnum::MOBILE,'13')->nullable();
             $table->string(UserEnum::EMAIL)->unique();

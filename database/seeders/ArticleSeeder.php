@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 
+use App\Models\Author;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\Article as ArticleModel;
 use App\Enums\Article as ArticleEnum;
@@ -30,7 +32,11 @@ class ArticleSeeder extends Seeder
         foreach ($titles as $key => $title) {
             ArticleModel::factory()
                     ->state(new Sequence(
-                        fn ($sequence) => [ArticleEnum::TITLE => $title,ArticleEnum::DESCRIPTION=>$descriptions[$key],ArticleEnum::USER_ID=>$key+1],
+                        fn ($sequence) => [
+                            ArticleEnum::USER_ID => Author::inRandomOrder()->first()->user->id,
+                            ArticleEnum::TITLE => $title,
+                            ArticleEnum::DESCRIPTION => $descriptions[$key],
+                        ],
                     ))
                     ->create();
         }

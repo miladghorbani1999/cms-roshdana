@@ -19,7 +19,7 @@ class Admin extends Model
     protected $fillable = [
         AdminEnum::ID,
         AdminEnum::NATIONAL_CODE,
-        AdminEnum::ACTIVITY,
+        AdminEnum::IsActive,
         AdminEnum::USER_ID,
     ];
 

@@ -19,7 +19,7 @@ class AdminFactory extends Factory{
     {
         return [
             AdminEnum::NATIONAL_CODE => $this->faker->unique()->numerify('#########'),
-            AdminEnum::ACTIVITY => (bool)rand(0,1),
+            AdminEnum::IsActive => (bool)rand(0,1),
             AdminEnum::USER_ID => $this->faker->unique()->numberBetween(1,10),
         ];
     }

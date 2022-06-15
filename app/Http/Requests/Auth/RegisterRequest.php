@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            UserEnum::NAME      => ['bail','required', 'string', 'max:255'],
+            UserEnum::FirstName      => ['bail','required', 'string', 'max:255'],
             UserEnum::LAST_NAME => ['bail','required', 'string', 'max:255'],
             UserEnum::EMAIL     => ['bail','required', 'string', 'email', 'max:255', 'unique:users'],
             UserEnum::PASSWORD  => ['bail','required', 'confirmed', Rules\Password::defaults()],
@@ -34,14 +34,14 @@ class RegisterRequest extends FormRequest
     public function messages(){
         return [
 
-            UserEnum::NAME.'.max'           => __('auth.main.max'        ,["text"=>'نام']),
+            UserEnum::FirstName.'.max'           => __('auth.main.max'        ,["text"=>'نام']),
             UserEnum::LAST_NAME.'.required' => __('auth.main.required'   ,['text'=>'نام خانوادگی']),
             UserEnum::LAST_NAME.'.max'      => __('auth.main.max'        ,["text"=>'نام خانوادگی']),
             UserEnum::EMAIL.'.required'     => __('auth.main.required'   ,['text'=>'ایمیل']),
             UserEnum::EMAIL.'.email'        => __('auth.main.required'   ,['text'=>'ایمیل']),
             UserEnum::EMAIL.'.unique:users' => __('auth.main.unique'     ,['text'=>'ایمیل']),
             UserEnum::PASSWORD.'.required'  => __('auth.main.required'   ,['text'=>'پسورد']),
-            UserEnum::NAME.'.required'      => __('auth.main.required'   ,['text'=>'نام']),
+            UserEnum::FirstName.'.required'      => __('auth.main.required'   ,['text'=>'نام']),
         ];
     }
 }

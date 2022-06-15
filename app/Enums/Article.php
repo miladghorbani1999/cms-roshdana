@@ -16,7 +16,7 @@ class Article extends BaseEnum
         self::DRAFT
     ];
     const RELEASE_AT = 'release_at';
-    const COMMENT    = 'comment';
+    const IS_COMMENTABLE    = 'is_commentable';
     const SLUG       = 'slug';
     const USER_ID    = 'user_id';
     const CATEGORY_ID = 'category_id';

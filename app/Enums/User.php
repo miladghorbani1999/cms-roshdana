@@ -5,7 +5,7 @@ namespace App\Enums;
 class User extends BaseEnum
 {
     const TABLE           = 'users';
-    const NAME            = 'name';
+    const FirstName       = 'first_name';
     const LAST_NAME       = 'last_name';
     const EMAIL           = 'email';
     const EMAIL_VERIFY    = 'email_verify';

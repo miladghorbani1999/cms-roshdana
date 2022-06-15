@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 
+use App\Enums\User as UserEnum;
 use Illuminate\Database\Seeder;
 use App\Models\User as UserModel;
 use Illuminate\Database\Eloquent\Factories\Sequence;
+use Illuminate\Support\Arr;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -15,13 +18,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $name=['علی','حسن','حسین','عرفان','محسن','سعید','میلاد','جواد'];
-        $last_name=['موسوی','محمدی','صادقی','احمدی','محسنی','اکبری','قربانی','مدنیان'];
+        $names = ['علی','حسن','حسین','عرفان','محسن','سعید','میلاد','جواد'];
+        $last_names = ['موسوی','محمدی','صادقی','احمدی','محسنی','اکبری','قربانی','مدنیان'];
         UserModel::factory()
-                ->count(10)
+                ->count(25)
                 ->state(new Sequence(
-                    fn ($sequence) => ['name' => $name[array_rand($name)],'last_name'=>$last_name[array_rand($last_name)]],
-                ))
-                ->create();
+                    fn ($sequence) => [
+                        UserEnum::FirstName => Arr::random($names),
+                        UserEnum::LAST_NAME => Arr::random($last_names)
+                    ],
+                ))->create();
     }
 }
