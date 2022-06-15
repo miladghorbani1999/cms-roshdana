@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\Image as ImageEnum;
 use App\Models\User as UserModel;
 use App\Models\Article as ArticleModel;
-use App\Models\video as VideoModel;
+use App\Models\Video as VideoModel;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
