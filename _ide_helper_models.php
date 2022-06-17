@@ -42,7 +42,7 @@ namespace App\Models{
  * App\Models\Article
  *
  * @property int $id
- * @property int|null $user_id
+ * @property int|null $author_id
  * @property int|null $category_id
  * @property string $title
  * @property string $slug
@@ -61,11 +61,12 @@ namespace App\Models{
  * @property-read int|null $comments_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property-read int|null $tags_count
- * @property-read \App\Models\User|null $user
+ * @property-read \App\Models\User $user
  * @method static \Database\Factories\ArticleFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereAuthorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescription($value)
@@ -77,7 +78,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Article whereUserId($value)
  */
 	class Article extends \Eloquent {}
 }
@@ -116,6 +116,8 @@ namespace App\Models{
  * @property string $level
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Article[] $articles
+ * @property-read int|null $articles_count
  * @property-read \App\Models\User $user
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Video[] $videos
  * @property-read int|null $videos_count
@@ -235,8 +237,6 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $last_login
  * @property-read \App\Models\Admin|null $admin
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Article[] $articles
- * @property-read int|null $articles_count
  * @property-read \App\Models\Author|null $author
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
  * @property-read int|null $comments_count

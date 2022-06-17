@@ -3,9 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\User;
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\Article as ArticleEnum;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
  */
@@ -19,12 +20,12 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            ArticleEnum::TITLE       => $this->faker->sentence,
-            ArticleEnum::CATEGORY_ID => Category::inRandomOrder()->first('id')->id,
+            ArticleEnum::TITLE       => $this->faker->text(50),
+            ArticleEnum::CATEGORY_ID => Category::inRandomOrder()->first()->id,
             ArticleEnum::SLUG        => $this->faker->slug,
-            ArticleEnum::DESCRIPTION => $this->faker->text,
+            ArticleEnum::DESCRIPTION => $this->faker->text(),
             ArticleEnum::STATUS      => $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
-            ArticleEnum::USER_ID     => User::inRandomOrder()->first('id')->id,
+            ArticleEnum::AUTHOR_ID     => Author::inRandomOrder()->first()->user->id,
             ArticleEnum::RELEASE_AT  => now(),
             ArticleEnum::IS_COMMENTABLE     => $this->faker->boolean(),
         ];

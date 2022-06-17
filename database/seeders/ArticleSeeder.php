@@ -19,26 +19,6 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        $titles = [
-            'عنوان مقاله اول',
-            'عنوان مقاله دوم',
-            'عنوان مقاله سوم',
-        ];
-        $descriptions = [
-            'توضیحات مقاله اول',
-            'توضیحات مقاله دوم',
-            'توضیحات مقاله سوم',
-        ];
-        foreach ($titles as $key => $title) {
-            ArticleModel::factory()
-                    ->state(new Sequence(
-                        fn ($sequence) => [
-                            ArticleEnum::USER_ID => Author::inRandomOrder()->first()->user->id,
-                            ArticleEnum::TITLE => $title,
-                            ArticleEnum::DESCRIPTION => $descriptions[$key],
-                        ],
-                    ))
-                    ->create();
-        }
+        ArticleModel::factory()->count(50)->create();
     }
 }

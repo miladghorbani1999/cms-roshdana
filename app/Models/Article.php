@@ -37,11 +37,11 @@ class Article extends Model
     }
 
     public function admin(){
-        return $this->hasOneThrough(Admin::class, User::class, UserEnum::ID, AdminEnum::USER_ID, ArticleEnum::USER_ID);
+        return $this->hasOneThrough(Admin::class, User::class, UserEnum::ID, AdminEnum::USER_ID, ArticleEnum::AUTHOR_ID);
     }
 
     public function author(){
-        return $this->hasOneThrough(Author::class, User::class, UserEnum::ID, AuthorEnum::USER_ID, AdminEnum::USER_ID);
+        return $this->belongsTo(Author::class, ArticleEnum::AUTHOR_ID);
     }
 
     public function Image(){

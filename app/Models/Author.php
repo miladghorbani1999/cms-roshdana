@@ -31,4 +31,9 @@ class Author extends Model
         return $this->hasManyThrough(Video::class, User::class, UserEnum::ID, VideoEnum::USER_ID, AuthorEnum::USER_ID);
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
 }

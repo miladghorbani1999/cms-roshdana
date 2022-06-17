@@ -17,8 +17,8 @@ class Article extends BaseEnum
     ];
     const RELEASE_AT = 'release_at';
     const IS_COMMENTABLE    = 'is_commentable';
-    const SLUG       = 'slug';
-    const USER_ID    = 'user_id';
+    const SLUG        = 'slug';
+    const AUTHOR_ID   = 'author_id';
     const CATEGORY_ID = 'category_id';
-    const MAIN_IMAGE = 'main_image';
+    const MAIN_IMAGE  = 'main_image';
 }

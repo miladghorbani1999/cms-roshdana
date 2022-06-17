@@ -16,9 +16,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create(ArticleEnum::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger(ArticleEnum::USER_ID)->nullable();
+            $table->unsignedBigInteger(ArticleEnum::AUTHOR_ID)->nullable();
             $table->unsignedBigInteger(ArticleEnum::CATEGORY_ID)->nullable();
             $table->string(ArticleEnum::TITLE,'150');
             $table->string(ArticleEnum::SLUG,'150')->unique();
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->boolean(ArticleEnum::IS_COMMENTABLE)->default(true);
             $table->timestamps();
 
-            $table->foreign(ArticleEnum::USER_ID)->references(UserEnum::ID)->on(UserEnum::TABLE)
+            $table->foreign(ArticleEnum::AUTHOR_ID)->references(UserEnum::ID)->on(UserEnum::TABLE)
                 ->onUpdate('cascade')
                 ->onDelete('set null');
 
@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists(ArticleEnum::TABLE);
     }
 };

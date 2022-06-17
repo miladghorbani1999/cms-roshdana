@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         $names = ['علی','حسن','حسین','عرفان','محسن','سعید','میلاد','جواد'];
         $last_names = ['موسوی','محمدی','صادقی','احمدی','محسنی','اکبری','قربانی','مدنیان'];
         UserModel::factory()
-                ->count(25)
+                ->count(120)
                 ->state(new Sequence(
                     fn ($sequence) => [
                         UserEnum::FirstName => Arr::random($names),
