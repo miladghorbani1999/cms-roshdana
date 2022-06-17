@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger(AuthorEnum::USER_ID);
             $table->string(AuthorEnum::CITY);
-            $table->enum('level', ['junior', 'mid-level', 'senior'])->default('junior');
+            $table->enum(AuthorEnum::LEVEL, AuthorEnum::STATUSES)->default(AuthorEnum::JUNIOR);
             $table->timestamps();
 
             $table->foreign(AuthorEnum::USER_ID)->references(UserEnum::ID)->on(UserEnum::TABLE);

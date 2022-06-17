@@ -11,5 +11,6 @@ class Video extends BaseEnum
     const RELEASE_AT  = 'release_at';
     const UID         = 'uid';
     const USER_ID     = 'user_id';
+    const MAIN_IMAGE  = 'main_image';
 
 }

@@ -20,4 +20,5 @@ class Article extends BaseEnum
     const SLUG       = 'slug';
     const USER_ID    = 'user_id';
     const CATEGORY_ID = 'category_id';
+    const MAIN_IMAGE = 'main_image';
 }

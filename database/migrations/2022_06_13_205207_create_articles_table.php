@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string(ArticleEnum::TITLE,'150');
             $table->string(ArticleEnum::SLUG,'150')->unique();
             $table->longText(ArticleEnum::DESCRIPTION);
+            $table->string(ArticleEnum::MAIN_IMAGE)->nullable();
             $table->enum(ArticleEnum::STATUS,ArticleEnum::STATUS_TYPE);
             $table->timestamp(ArticleEnum::RELEASE_AT);
             $table->boolean(ArticleEnum::IS_COMMENTABLE)->default(true);

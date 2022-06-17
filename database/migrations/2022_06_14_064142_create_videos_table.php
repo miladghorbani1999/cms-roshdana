@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\Video;
-use App\Enums\User;
+use App\Enums\Video as VideoEnum;
+use App\Enums\User as UserEnum;
 return new class extends Migration
 {
     /**
@@ -14,20 +14,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create(VideoEnum::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger(Video::USER_ID);
-            $table->string(Video::TITLE, 100);
-            $table->string(Video::DESCRIPTION);
-            $table->unsignedInteger(Video::DURATION);
-            $table->timestamp(Video::RELEASE_AT);
-            $table->string(Video::UID, 100)->unique();
-            $table->string('main_image')->nullable();
+            $table->unsignedBigInteger(VideoEnum::USER_ID);
+            $table->string(VideoEnum::TITLE, 100);
+            $table->string(VideoEnum::DESCRIPTION);
+            $table->unsignedInteger(VideoEnum::DURATION);
+            $table->timestamp(VideoEnum::RELEASE_AT);
+            $table->string(VideoEnum::UID, 100)->unique();
+            $table->string(VideoEnum::MAIN_IMAGE)->nullable();
             $table->timestamps();
 
-            $table->foreign(Video::USER_ID)
-                ->references('id')
-                ->on('users');
+            $table->foreign(VideoEnum::USER_ID)
+                ->references(UserEnum::ID)
+                ->on(UserEnum::TABLE);
 
         });
     }
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists(VideoEnum::TABLE);
     }
 };

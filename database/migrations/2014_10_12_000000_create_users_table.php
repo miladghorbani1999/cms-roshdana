@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string(UserEnum::FirstName);
             $table->string(UserEnum::LAST_NAME);
             $table->string(UserEnum::MOBILE,'13')->nullable();
+            $table->string(UserEnum::IMAGE)->nullable();
             $table->string(UserEnum::EMAIL)->unique();
             $table->timestamp(UserEnum::EMAIL_VERIFY)->nullable();
             $table->string(UserEnum::PASSWORD);
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists(UserEnum::TABLE);
     }
 };

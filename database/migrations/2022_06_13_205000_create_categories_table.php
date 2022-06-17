@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger(CategoryEnum::PARENT_ID)->nullable();
             $table->string(CategoryEnum::NAME);
-//            $table->timestamps();
         });
     }
 

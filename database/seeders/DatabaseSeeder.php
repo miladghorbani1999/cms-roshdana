@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AuthorSeeder::class,
             CategorySeeder::class,
-            ImageSeeder::class,
             ArticleSeeder::class,
             VideoSeeder::class,
             CommentSeeder::class,
