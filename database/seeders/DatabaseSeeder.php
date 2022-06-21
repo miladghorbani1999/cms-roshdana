@@ -19,14 +19,12 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AuthorSeeder::class,
             CategorySeeder::class,
+            TagSeeder::class,
             ArticleSeeder::class,
             VideoSeeder::class,
             CommentSeeder::class,
-            TagSeeder::class,
-            ArticleTagSeeder::class,
+
+
         ]);
-        // User::factory(1)->create();
-        // Admin::factory(10)->create();
-        // Author::factory(10)->create();
     }
 }

@@ -7,19 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 use App\Enums\Comment as CommentEnum;
 use App\Enums\Tag as TagEnum;
 use App\Enums\User as UserEnum;
-use App\Enums\Admin as AdminEnum;
 use App\Enums\Article as ArticleEnum;
 use App\Enums\Author as AuthorEnum;
 use App\Enums\Image as ImageEnum;
+use \Znck\Eloquent\Traits\BelongsToThrough;
 
 class Article extends Model
 {
     use HasFactory;
 
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->BelongsToThrough(User::class,Author::class,AuthorEnum::USER_ID,UserEnum::ID,ArticleEnum::AUTHOR_ID);
     }
+
+
 
     public function category()
     {
@@ -36,12 +42,9 @@ class Article extends Model
         return $this->belongsToMany(Tag::class, TagEnum::TABLE_ARTICLE_TAG, TagEnum::TAG_ID, TagEnum::ARTICLE_ID);
     }
 
-    public function admin(){
-        return $this->hasOneThrough(Admin::class, User::class, UserEnum::ID, AdminEnum::USER_ID, ArticleEnum::AUTHOR_ID);
-    }
-
-    public function author(){
-        return $this->belongsTo(Author::class, ArticleEnum::AUTHOR_ID);
+    public function ArticleTages()
+    {
+        return $this->hasMany(ArticleTag::class);
     }
 
     public function Image(){

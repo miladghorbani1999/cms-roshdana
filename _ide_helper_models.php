@@ -53,15 +53,15 @@ namespace App\Models{
  * @property int $is_commentable
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ArticleTag[] $ArticleTages
+ * @property-read int|null $article_tages_count
  * @property-read \App\Models\Image|null $Image
- * @property-read \App\Models\Admin|null $admin
  * @property-read \App\Models\Author|null $author
  * @property-read \App\Models\Category|null $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
  * @property-read int|null $comments_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property-read int|null $tags_count
- * @property-read \App\Models\User $user
  * @method static \Database\Factories\ArticleFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
@@ -237,6 +237,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $last_login
  * @property-read \App\Models\Admin|null $admin
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Article[] $articles
+ * @property-read int|null $articles_count
  * @property-read \App\Models\Author|null $author
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
  * @property-read int|null $comments_count
@@ -271,7 +273,7 @@ namespace App\Models{
  * App\Models\Video
  *
  * @property int $id
- * @property int $user_id
+ * @property int $author_id
  * @property string $title
  * @property string $description
  * @property int $duration
@@ -282,14 +284,15 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Image|null $Image
  * @property-read \App\Models\Admin|null $admin
- * @property-read \App\Models\Author|null $author
+ * @property-read \App\Models\Author $author
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
  * @property-read int|null $comments_count
- * @property-read \App\Models\User $user
+ * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\VideoFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Video newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Video newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Video query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Video whereAuthorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereDuration($value)
@@ -299,7 +302,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereUid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Video whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Video whereUserId($value)
  */
 	class Video extends \Eloquent {}
 }

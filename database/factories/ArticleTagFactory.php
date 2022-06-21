@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\Tag as TagEnum;
+use App\Models\Article;
+use App\Models\Tag;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -18,8 +20,8 @@ class ArticleTagFactory extends Factory
     public function definition()
     {
         return [
-            TagEnum::ARTICLE_ID => $this->faker->numberBetween(1, 3),
-            TagEnum::TAG_ID     => $this->faker->numberBetween(1, 3),
+            TagEnum::ARTICLE_ID => Article::inRandomOrder()->first()->id,
+            TagEnum::TAG_ID     => Tag::inRandomOrder()->first()->id,
         ];
     }
 }

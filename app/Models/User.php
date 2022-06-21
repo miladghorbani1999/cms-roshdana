@@ -50,13 +50,6 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, ImageEnum::IMAGEABLE);
     }
 
-
-
-    public function videos()
-    {
-        return $this->hasMany(Video::class);
-    }
-
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -70,5 +63,14 @@ class User extends Authenticatable
     public function author()
     {
         return $this->hasOne(Author::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasManyThrough(Video::class, Author::class);
+    }
+
+    public function articles(){
+        return $this->hasManyThrough(Article::class, Author::class);
     }
 }

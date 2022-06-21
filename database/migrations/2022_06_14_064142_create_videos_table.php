@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create(VideoEnum::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger(VideoEnum::USER_ID);
+            $table->unsignedBigInteger(VideoEnum::AUTHOR_ID);
             $table->string(VideoEnum::TITLE, 100);
             $table->string(VideoEnum::DESCRIPTION);
             $table->unsignedInteger(VideoEnum::DURATION);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string(VideoEnum::MAIN_IMAGE)->nullable();
             $table->timestamps();
 
-            $table->foreign(VideoEnum::USER_ID)
+            $table->foreign(VideoEnum::AUTHOR_ID)
                 ->references(UserEnum::ID)
                 ->on(UserEnum::TABLE);
 

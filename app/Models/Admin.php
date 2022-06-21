@@ -35,7 +35,7 @@ class Admin extends Model
     }
 
     public function videos(){
-        return $this->hasManyThrough(Video::class, User::class, UserEnum::ID, VideoEnum::USER_ID, AdminEnum::USER_ID);
+        return $this->hasManyThrough(Video::class, User::class, UserEnum::ID, VideoEnum::AUTHOR_ID, AdminEnum::USER_ID);
     }
 
 }

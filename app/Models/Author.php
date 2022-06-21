@@ -27,13 +27,13 @@ class Author extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function videos(){
-        return $this->hasManyThrough(Video::class, User::class, UserEnum::ID, VideoEnum::USER_ID, AuthorEnum::USER_ID);
-    }
-
     public function articles()
     {
         return $this->hasMany(Article::class);
     }
 
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }

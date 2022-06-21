@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\Video as VideoEnum;
 /**
@@ -20,7 +21,7 @@ class VideoFactory extends Factory
             VideoEnum::TITLE       => $this->faker->sentence,
             videoEnum::DESCRIPTION => $this->faker->text,
             videoEnum::DURATION    => $this->faker->numberBetween(1000,100000),
-            videoEnum::USER_ID     => $this->faker->numberBetween(1,10),
+            videoEnum::AUTHOR_ID   => Author::inRandomOrder()->first()->id,
             videoEnum::RELEASE_AT  => now(),
             videoEnum::UID         => $this->faker->uuid,
         ];

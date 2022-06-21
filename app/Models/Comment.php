@@ -30,7 +30,7 @@ class Comment extends Model
 
     public function commentable()
     {
-        return $this->morphTo();
+        return $this->morphTo( CommentEnum::COMMENTABLE);
     }
 
     public function user()
