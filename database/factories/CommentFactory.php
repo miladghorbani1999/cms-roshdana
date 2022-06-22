@@ -27,7 +27,7 @@ class CommentFactory extends Factory
             CommentEnum::BODY => $this->faker->text(50),
                         CommentEnum::COMMENTABLE_ID => $this->faker->numberBetween(1,15),
                         CommentEnum::COMMENTABLE_TYPE => $commentable_id[array_rand($commentable_id)],
-                        CommentEnum::USER_ID => User::inRandomOrder()->first()->id
+                        CommentEnum::USER_ID => User::factory()->create()->id
         ];
     }
 }
