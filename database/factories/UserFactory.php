@@ -22,6 +22,7 @@ class UserFactory extends Factory
             UserEnum::FirstName      => $this->faker->name(),
             UserEnum::LAST_NAME      => $this->faker->lastName(),
             UserEnum::EMAIL          => $this->faker->unique()->safeEmail(),
+            UserEnum::IMAGE          => basename($this->faker->image(storage_path('app/public'))),
             UserEnum::EMAIL_VERIFY   => now(),
             UserEnum::MOBILE          => $phone_number,
             UserEnum::PASSWORD       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

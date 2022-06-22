@@ -22,6 +22,7 @@ class ArticleFactory extends Factory
         return [
             ArticleEnum::TITLE       => $this->faker->text(50),
             ArticleEnum::CATEGORY_ID => $this->faker->numberBetween(1,6),
+            ArticleEnum::MAIN_IMAGE  => basename($this->faker->image(storage_path('app/public'))),
             ArticleEnum::SLUG        => $this->faker->slug,
             ArticleEnum::DESCRIPTION => $this->faker->text(),
             ArticleEnum::STATUS      => $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
