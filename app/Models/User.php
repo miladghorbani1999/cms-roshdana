@@ -45,11 +45,6 @@ class User extends Authenticatable
         UserEnum::EMAIL_VERIFY => 'datetime',
     ];
 
-    public function image()
-    {
-        return $this->morphOne(Image::class, ImageEnum::IMAGEABLE);
-    }
-
     public function comments()
     {
         return $this->hasMany(Comment::class);

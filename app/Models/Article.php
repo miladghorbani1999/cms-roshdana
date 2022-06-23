@@ -14,7 +14,9 @@ use \Znck\Eloquent\Traits\BelongsToThrough;
 
 class Article extends Model
 {
-    use HasFactory;
+
+    use HasFactory,
+        BelongsToThrough;
 
     public function author(){
         return $this->belongsTo(Author::class);
@@ -24,8 +26,6 @@ class Article extends Model
     {
         return $this->BelongsToThrough(User::class,Author::class,AuthorEnum::USER_ID,UserEnum::ID,ArticleEnum::AUTHOR_ID);
     }
-
-
 
     public function category()
     {
@@ -40,15 +40,6 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, TagEnum::TABLE_ARTICLE_TAG, TagEnum::TAG_ID, TagEnum::ARTICLE_ID);
-    }
-
-    public function ArticleTages()
-    {
-        return $this->hasMany(ArticleTag::class);
-    }
-
-    public function Image(){
-        return $this->morphOne(Image::class, ImageEnum::IMAGEABLE);
     }
 
 }

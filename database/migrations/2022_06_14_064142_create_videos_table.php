@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create(VideoEnum::TABLE, function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger(VideoEnum::AUTHOR_ID);
-            $table->string(VideoEnum::TITLE, 100);
+            $table->string(VideoEnum::TITLE);
             $table->string(VideoEnum::DESCRIPTION);
             $table->unsignedInteger(VideoEnum::DURATION);
             $table->timestamp(VideoEnum::RELEASE_AT);

@@ -20,13 +20,15 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            ArticleEnum::TITLE       => $this->faker->text(50),
-            ArticleEnum::CATEGORY_ID => $this->faker->numberBetween(1,6),
+            ArticleEnum::TITLE       => $this->faker->realText(50),
+            ArticleEnum::CATEGORY_ID => Category::inRandomOrder()->first()->id,
             ArticleEnum::SLUG        => $this->faker->slug,
-            ArticleEnum::DESCRIPTION => $this->faker->text(),
+            ArticleEnum::DESCRIPTION => $this->faker->realText(),
             ArticleEnum::STATUS      => $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
             ArticleEnum::RELEASE_AT  => now(),
             ArticleEnum::IS_COMMENTABLE => $this->faker->boolean(),
+            ArticleEnum::AUTHOR_ID => Author::inRandomOrder()->first()->id,
+
         ];
     }
 }

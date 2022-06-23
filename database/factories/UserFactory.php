@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Enums\User as UserEnum;
 /**
@@ -17,15 +19,18 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
         $phone_number = "09".$this->faker->numerify('##########');
+
         return[
-            UserEnum::FirstName      => $this->faker->name(),
+            UserEnum::FirstName      => $this->faker->firstName(),
             UserEnum::LAST_NAME      => $this->faker->lastName(),
             UserEnum::EMAIL          => $this->faker->unique()->safeEmail(),
-            UserEnum::EMAIL_VERIFY   => now(),
+//            UserEnum::EMAIL_VERIFY   => now(),
             UserEnum::MOBILE          => $phone_number,
             UserEnum::PASSWORD       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             UserEnum::REMEMBER_TOKEN => Str::random(10),
+            UserEnum::IMAGE => Arr::random(['sample1.jpg', 'sample2.jpg', 'sample3.jpg', null, null])
         ];
 
     }

@@ -19,27 +19,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $names = ['علی','حسن','حسین','عرفان','محسن','سعید','میلاد','جواد'];
-        $last_names = ['موسوی','محمدی','صادقی','احمدی','محسنی','اکبری','قربانی','مدنیان'];
+
         UserModel::factory()
                 ->count(30)
                 ->hasAdmin()
-                ->state(new Sequence(
-                    fn ($sequence) => [
-                        UserEnum::FirstName => Arr::random($names),
-                        UserEnum::LAST_NAME => Arr::random($last_names)
-                    ],
-                ))->create();
+                ->create();
 
         UserModel::factory()
                 ->count(50)
-                ->has(Author::factory()->hasVideos(4))
-                ->state(new Sequence(
-                    fn ($sequence) => [
-                        UserEnum::FirstName => Arr::random($names),
-                        UserEnum::LAST_NAME => Arr::random($last_names)
-                    ],
-                ))->create();
+                ->has(Author::factory())
+                ->create();
 
     }
 }

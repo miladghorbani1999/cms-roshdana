@@ -8,7 +8,6 @@ use App\Enums\Tag as TageEnum;
 
 class Tag extends Model
 {
-    use HasFactory;
     /**
      * The attributes that are mass assignable.
      *
