@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string(UserEnum::MOBILE,'13')->nullable();
             $table->string(UserEnum::IMAGE)->nullable();
             $table->string(UserEnum::EMAIL)->unique();
-            $table->timestamp(UserEnum::EMAIL_VERIFY)->nullable();
+//            $table->timestamp(UserEnum::EMAIL_VERIFY)->nullable();
             $table->string(UserEnum::PASSWORD);
             $table->rememberToken();
             $table->timestamps();

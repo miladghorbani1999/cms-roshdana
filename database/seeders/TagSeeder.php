@@ -26,12 +26,8 @@ class TagSeeder extends Seeder
             'برنامه نویسی',
         ];
 
-        foreach ($names as $key => $name) {
-            TagModel::factory()
-                    ->state(new Sequence(
-                        fn ($sequence) => [TagEnum::NAME => $name],
-                    ))->has(Article::factory(5)->for(Author::factory()))
-                    ->create();
+        foreach ($names as $name) {
+            TagModel::create([TagEnum::NAME => $name]);
         }
     }
 }

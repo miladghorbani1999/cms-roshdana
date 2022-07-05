@@ -16,5 +16,5 @@ class User extends BaseEnum
     const MOBILE           = 'mobile';
     const LAST_LOGIN       = 'last_login';
     const PASSWORD_RESETS  = 'password_resets';
-    const IMAGE            = 'image';
+    const IMAGE            = 'avatar';
 }

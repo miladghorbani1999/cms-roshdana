@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\Tag as TageEnum;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Tag extends Model
 {
     use HasFactory;

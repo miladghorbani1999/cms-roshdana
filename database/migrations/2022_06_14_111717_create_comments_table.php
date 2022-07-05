@@ -18,10 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string(CommentEnum::BODY);
             $table->morphs(CommentEnum::COMMENTABLE);
-            $table->unsignedBigInteger(CommentEnum::USER_ID)->nullable();
             $table->timestamps();
-
-            $table->foreign(CommentEnum::USER_ID)->references(UserEnum::ID)->on(UserEnum::TABLE);
         });
     }
 

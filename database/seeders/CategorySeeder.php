@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 use App\Enums\Category as CategoryEnum;
 use App\Models\Category as ModelCategory;
@@ -23,13 +22,9 @@ class CategorySeeder extends Seeder
             'سیاسی',
             'اقتصادی',
             'متفرقه',
-
         ];
         foreach($names as $name){
-            ModelCategory::factory()->create([
-                CategoryEnum::PARENT_ID => null,
-                CategoryEnum::NAME      => $name,
-            ]);
+            ModelCategory::create(['name' => $name]);
         }
 
     }

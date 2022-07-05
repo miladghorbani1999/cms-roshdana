@@ -17,6 +17,6 @@ class CommentSeeder extends Seeder
     {
 
 
-        CommentModel::factory()->count(15)->create();
+//        CommentModel::factory()->count(15)->create();
     }
 }
