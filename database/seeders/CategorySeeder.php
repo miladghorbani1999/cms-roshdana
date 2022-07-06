@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Enums\BaseEnum;
 use Illuminate\Database\Seeder;
 use App\Enums\Category as CategoryEnum;
-use App\Models\Category as ModelCategory;
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -15,17 +16,17 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $names = [
-            'تکنولوژی',
-            'بین‌المللی',
-            'مذهبی',
-            'سیاسی',
-            'اقتصادی',
-            'متفرقه',
+
+        $categories = [
+            [BaseEnum::ID => 1,     CategoryEnum::NAME => 'تکنولوژی' ],
+            [BaseEnum::ID => 2,     CategoryEnum::NAME => 'بین‌المللی' ],
+            [BaseEnum::ID => 3,     CategoryEnum::NAME => 'مذهبی' ],
+            [BaseEnum::ID => 4,     CategoryEnum::NAME => 'سیاسی' ],
+            [BaseEnum::ID => 5,     CategoryEnum::NAME => 'اقتصادی' ],
+            [BaseEnum::ID => 6,     CategoryEnum::NAME => 'متفرقه' ],
         ];
-        foreach($names as $name){
-            ModelCategory::create(['name' => $name]);
-        }
+
+        Category::insert($categories);
 
     }
 }

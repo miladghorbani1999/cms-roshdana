@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Eloquent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -9,7 +10,7 @@ class TruncateAllTables extends Seeder {
 
     public function run() {
 
-        // Eloquent::unguard();
+        Eloquent::unguard();
 
         DB::statement("SET foreign_key_checks=0");
         $databaseName = DB::getDatabaseName();

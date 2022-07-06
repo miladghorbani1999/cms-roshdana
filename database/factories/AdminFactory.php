@@ -10,6 +10,7 @@ use App\Models\User;
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
 class AdminFactory extends Factory{
+
     /**
      * Define the model's default state.
      *
@@ -18,9 +19,11 @@ class AdminFactory extends Factory{
     public function definition()
     {
         return [
+
+            AdminEnum::USER_ID => User::factory(),
             AdminEnum::NATIONAL_CODE => $this->faker->unique()->numerify('#########'),
-            AdminEnum::IsActive => (bool)rand(0,1),
-            AdminEnum::USER_ID => User::factory()->create()->id,
+            AdminEnum::IsActive => rand(1,10) < 8,
+
         ];
     }
 }

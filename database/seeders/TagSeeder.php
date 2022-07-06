@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Enums\BaseEnum;
 use Illuminate\Database\Seeder;
 use App\Enums\Tag as TagEnum;
-use App\Models\Article;
-use App\Models\Author;
-use App\Models\Tag as TagModel;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class TagSeeder extends Seeder
@@ -18,16 +17,16 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $names = [
-            'اخبارفوری',
-            'ایران',
-            'جنجالی',
-            'طنز',
-            'برنامه نویسی',
+
+        $tags = [
+            [BaseEnum::ID => 1,     TagEnum::NAME => 'اخبارفوری'],
+            [BaseEnum::ID => 2,     TagEnum::NAME => 'ایران'],
+            [BaseEnum::ID => 3,     TagEnum::NAME => 'جنجالی'],
+            [BaseEnum::ID => 4,     TagEnum::NAME => 'طنز'],
+            [BaseEnum::ID => 5,     TagEnum::NAME => 'برنامه نویسی'],
         ];
 
-        foreach ($names as $name) {
-            TagModel::create([TagEnum::NAME => $name]);
-        }
+        Tag::insert($tags);
+
     }
 }

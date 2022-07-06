@@ -5,7 +5,7 @@ namespace App\Enums;
 class Author extends BaseEnum
 {
     const TABLE      = 'authors';
-    const CITY       = 'city';
+    const CITY_ID    = 'city_id';
     const LEVEL      = 'level';
     const USER_ID    = 'user_id';
     const SENIOR     = 'senior';

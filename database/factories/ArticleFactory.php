@@ -21,15 +21,16 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            ArticleEnum::TITLE       => $this->faker->realText(50),
-            ArticleEnum::CATEGORY_ID => Category::inRandomOrder()->first()->id,
-            ArticleEnum::SLUG        => $this->faker->slug,
-            ArticleEnum::DESCRIPTION => $this->faker->realText(),
-            ArticleEnum::STATUS      => $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
-            ArticleEnum::RELEASE_AT  => now(),
-            ArticleEnum::IS_COMMENTABLE => $this->faker->boolean(),
-            ArticleEnum::AUTHOR_ID => 2,
-            ArticleEnum::MAIN_IMAGE => Arr::random(['post'.rand(0,10).'.png','post'.rand(0,10).'.png','post'.rand(0,10).'.png'])
+
+            ArticleEnum::AUTHOR_ID       =>     Author::inRandomOrder()->first('id')->id,
+            ArticleEnum::CATEGORY_ID     =>     Category::inRandomOrder()->first('id')->id,
+            ArticleEnum::TITLE           =>     $this->faker->realText(50),
+            ArticleEnum::SLUG            =>     $this->faker->slug,
+            ArticleEnum::DESCRIPTION     =>     $this->faker->realText(),
+            ArticleEnum::STATUS          =>     $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
+            ArticleEnum::RELEASE_AT      =>     now()->subMinutes(rand(0, 525600)), //~ Last 354 days
+            ArticleEnum::IS_COMMENTABLE  =>     $this->faker->boolean(),
+            ArticleEnum::MAIN_IMAGE      =>     'post'.rand(0,10).'.png',
 
         ];
     }

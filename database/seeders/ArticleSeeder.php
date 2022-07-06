@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use App\Models\Article;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Arr;
+use App\Enums\Comment as CommentEnum;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ArticleSeeder extends Seeder
 {
@@ -13,14 +15,22 @@ class ArticleSeeder extends Seeder
     {
 
         Article::factory()
-            ->count(5)
-            ->hasComments(3)
-//            ->hasTags(4)
+            ->count(50)
             ->create()
-            ->each(function ($article) {
-//                $article->tags()->sync([1, 3, 4]);
-            });
+            ->each(function($article) {
 
+                //Append Random Comments:
+                Comment::factory()->count(rand(0, 5))->create([
+                    CommentEnum::COMMENTABLE_TYPE => Article::class,
+                    CommentEnum::COMMENTABLE_ID => $article->id,
+                ]);
+
+                //Append Random Tags:
+                $article->tags()->sync(
+                    Tag::inRandomOrder()->limit(rand(0, 3))->pluck('id')
+                );
+
+            });
 
     }
 }

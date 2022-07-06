@@ -16,12 +16,15 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TruncateAllTables::class);
 
-        $this->call([
-            CategorySeeder::class,
-            TagSeeder::class,
-            UserSeeder::class,
-            // ArticleSeeder::class,
-            // CommentSeeder::class,
-        ]);
+        $this->call(CategorySeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(CitySeeder::class);
+
+        $this->call(AdminSeeder::class);
+        $this->call(AuthorSeeder::class);
+        $this->call(UserSeeder::class);
+
+        $this->call(ArticleSeeder::class);
+
     }
 }

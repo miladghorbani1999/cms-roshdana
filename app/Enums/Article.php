@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Enums;
 
 class Article extends BaseEnum

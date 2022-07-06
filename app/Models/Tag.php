@@ -18,6 +18,8 @@ class Tag extends Model
         TageEnum::NAME,
     ];
 
+    public $timestamps = false;
+
     /**
      * Get the articles for the tag.
      *

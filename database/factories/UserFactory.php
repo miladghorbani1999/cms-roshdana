@@ -12,6 +12,7 @@ use App\Enums\User as UserEnum;
  */
 class UserFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
@@ -19,32 +20,19 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-
-        $phone_number = "09".$this->faker->numerify('##########');
-
         return[
-            UserEnum::FirstName      => $this->faker->firstName(),
-            UserEnum::LAST_NAME      => $this->faker->lastName(),
-            UserEnum::EMAIL          => $this->faker->unique()->safeEmail(),
-            UserEnum::MOBILE         => $phone_number,
-            UserEnum::PASSWORD       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            UserEnum::REMEMBER_TOKEN => Str::random(10),
-            UserEnum::IMAGE => Arr::random(['avatar'.rand(0,10).'.jpeg','avatar'.rand(0,10).'.jpeg','avatar'.rand(0,10).'.jpeg','avatar'.rand(0,10).'.jpeg', null, null])
+
+            UserEnum::FirstName      =>         $this->faker->firstName(),
+            UserEnum::LAST_NAME      =>         $this->faker->lastName(),
+            UserEnum::EMAIL          =>         $this->faker->unique()->safeEmail(),
+            UserEnum::MOBILE         =>         "09" . $this->faker->numerify('##########'),
+            UserEnum::PASSWORD       =>         '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            UserEnum::REMEMBER_TOKEN =>         Str::random(10),
+            UserEnum::LAST_LOGIN     =>         now()->subMinutes(rand(0, 525600)), //~ Last 354 days
+            UserEnum::IMAGE          =>         (rand(1, 10) < 9) ? 'avatar' . rand(0, 10) . '.jpeg' : null,
+
         ];
 
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return static
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                UserEnum::EMAIL_VERIFY => null,
-            ];
-        });
-    }
 }

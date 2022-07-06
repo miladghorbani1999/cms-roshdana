@@ -17,7 +17,7 @@ class Author extends Model
      */
     protected $fillable = [
         AuthorEnum::ID,
-        AuthorEnum::CITY,
+        AuthorEnum::CITY_ID,
         AuthorEnum::LEVEL,
         AuthorEnum::USER_ID,
     ];

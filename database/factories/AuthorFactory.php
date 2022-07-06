@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use app\Enums\Author as AuthorEnum;
+use App\Models\City;
 use App\Models\User;
-use Author;
+use Illuminate\Support\Arr;
+use App\Enums\Author as AuthorEnum;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Auther>
@@ -21,9 +22,10 @@ class AuthorFactory extends Factory
     {
         return [
 
-            AuthorEnum::CITY        => $this->faker->city(),
-            AuthorEnum::LEVEL       => true,
-            AuthorEnum::USER_ID     => User::factory()->create()->id,
+            AuthorEnum::USER_ID     =>  User::factory(),
+            AuthorEnum::CITY_ID     =>  City::inRandomOrder()->first('id')->id,
+            AuthorEnum::LEVEL       =>  Arr::random(AuthorEnum::STATUSES),
+
         ];
     }
 }

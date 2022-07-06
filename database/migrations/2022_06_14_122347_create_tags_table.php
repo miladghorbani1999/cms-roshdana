@@ -18,8 +18,8 @@ return new class extends Migration
         Schema::create( TageEnum::TABLE_TAG , function (Blueprint $table) {
             $table->id();
             $table->string(TageEnum::NAME);
-            $table->timestamps();
         });
+
         Schema::create(TageEnum::TABLE_ARTICLE_TAG, function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger(TageEnum::ARTICLE_ID);

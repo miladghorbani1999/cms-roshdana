@@ -22,8 +22,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
+
             CommentEnum::BODY => $this->faker->realText(),
-            CommentEnum::COMMENTABLE_ID => User::inRandomOrder()->first()->id,
+
         ];
     }
 }
