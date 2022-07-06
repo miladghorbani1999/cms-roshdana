@@ -36,4 +36,7 @@ class Author extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    //Add Accessor
+
 }

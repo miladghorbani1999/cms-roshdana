@@ -1,8 +1,6 @@
 /* CSS Document */
 @charset "UTF-8";
 
-
-
 body {
 
     background: -webkit-linear-gradient(right, #3931af, #00c6ff);
@@ -153,9 +151,11 @@ a{
     margin-bottom: -15%;
     color: #495057;
 }
+
 .mt-90{
     margin-top: 90px !important;
 }
+
 .br-10{
     border-radius: 10px !important;
 }

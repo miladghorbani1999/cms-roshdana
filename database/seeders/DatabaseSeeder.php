@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        $this->call(TruncateAllTables::class);
+
         $this->call([
             CategorySeeder::class,
             TagSeeder::class,

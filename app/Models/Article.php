@@ -24,7 +24,7 @@ class Article extends Model
 
     public function user()
     {
-        return $this->BelongsToThrough(User::class,Author::class,AuthorEnum::USER_ID,UserEnum::ID,ArticleEnum::AUTHOR_ID);
+        return $this->BelongsToThrough(User::class,Author::class);
     }
 
     public function category()
@@ -40,6 +40,11 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, TagEnum::TABLE_ARTICLE_TAG, TagEnum::TAG_ID, TagEnum::ARTICLE_ID);
+    }
+
+    public function getCreatedAtJalaliAttribute(): string {
+        //$this->created_at_jalali
+        return jdate($this->created_at)->format('j F Y');
     }
 
 }

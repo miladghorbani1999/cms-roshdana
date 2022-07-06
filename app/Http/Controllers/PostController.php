@@ -14,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderByDesc('created_at')->paginate(5);
-        return view('posts',compact(['articles']));
+        $articles = Article::latest()->paginate(5);
+        return view('posts', compact('articles'));
     }
 
     /**
