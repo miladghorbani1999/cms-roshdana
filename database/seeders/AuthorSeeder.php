@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Author;
 use App\Enums\User as UserEnum;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AuthorSeeder extends Seeder
 {

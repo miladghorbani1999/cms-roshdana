@@ -6,7 +6,6 @@ use App\Enums\BaseEnum;
 use Illuminate\Database\Seeder;
 use App\Enums\Tag as TagEnum;
 use App\Models\Tag;
-use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class TagSeeder extends Seeder
 {

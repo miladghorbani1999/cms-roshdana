@@ -7,7 +7,6 @@ use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
 use App\Enums\Comment as CommentEnum;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ArticleSeeder extends Seeder
 {
