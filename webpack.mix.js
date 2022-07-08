@@ -17,4 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('autoprefixer'),
     ]).version();
 mix.postCss('resources/css/bootstrap.min.css','public/css/').version();
-mix.postCss('resources/css/auth.css','public/css/').version();
+mix.postCss('resources/css/admin/index.css','public/css/admin').version();
+mix.postCss('resources/css/site/index.css','public/css/site').version();
+mix.postCss('resources/css/main.css','public/css/').version();
+

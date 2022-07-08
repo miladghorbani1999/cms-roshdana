@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\Tag as TagEnum;
+
 use App\Enums\Comment as CommentEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -48,5 +48,12 @@ class Article extends Model
         //$this->created_at_jalali
         return jdate($this->created_at)->format('j F Y');
     }
+
+    public function getMainImageUrlAttribute():string
+    {
+        return 'image/posts/'.$this->main_image;
+    }
+
+
 
 }

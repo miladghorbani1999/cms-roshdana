@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Arr;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         $articles = Article::latest()->paginate(5);
-        return view('posts', compact('articles'));
+        return view('site.posts', compact('articles'));
+
     }
 
     /**

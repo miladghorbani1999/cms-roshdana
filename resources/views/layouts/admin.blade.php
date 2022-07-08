@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ $title_tag ?? 'عبارات پیش فرض' }}</title>
+        <title>@yield('config')</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="{{ mix('css/auth.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/admin/index.css') }}">
         <link rel="stylesheet" href="{{ mix('css/bootstrap.min.css') }}">
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
             <!-- Page Heading -->
             <header class="text-white">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <a class="text-white" type="button" href="{{route('posts')}}">پست ها</a>
+                    {{$title}}
                 </div>
             </header>
 

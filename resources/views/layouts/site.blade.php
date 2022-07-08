@@ -5,17 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('config')</title>
+        <title>{{ $title_tag ?? 'عبارات پیش فرض' }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="{{ mix('css/auth.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/site/index.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/main.css') }}">
         <link rel="stylesheet" href="{{ mix('css/bootstrap.min.css') }}">
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+
 
     </head>
     <body class="font-sans antialiased">
@@ -23,9 +24,7 @@
 
             <!-- Page Heading -->
             <header class="text-white">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{$title}}
-                </div>
+               {{ $header ?? " " }}
             </header>
 
             <!-- Page Content -->
@@ -34,4 +33,9 @@
             </main>
         </div>
     </body>
+
+
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
+
 </html>

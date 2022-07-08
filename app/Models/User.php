@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Enums\User as UserEnum;
 use App\Enums\Image as ImageEnum;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,27 +50,34 @@ class User extends Authenticatable
         UserEnum::EMAIL_VERIFY => 'datetime',
     ];
 
-    public function comments()
+    public function comments():HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function admin()
+    public function admin():HasOne
     {
         return $this->hasOne(Admin::class);
     }
 
-    public function author()
+    public function author():HasOne
     {
         return $this->hasOne(Author::class);
     }
 
-    public function videos()
+    public function videos():HasManyThrough
     {
         return $this->hasManyThrough(Video::class, Author::class);
     }
 
-    public function articles(){
+    public function articles():HasManyThrough
+    {
         return $this->hasManyThrough(Article::class, Author::class);
+    }
+
+    //=========     Accessors      =========//
+
+    public function getFullNameAttribute():string{
+        return $this->first_name . " " . $this->last_name;
     }
 }

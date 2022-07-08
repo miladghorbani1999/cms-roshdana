@@ -37,6 +37,9 @@ class Author extends Model
         return $this->hasMany(Video::class);
     }
 
-    //Add Accessor
+    //=========     Accessors      =========//
 
+    public function getAvatarUrlAttribute():string{
+        return 'image/avatar/'. $this->user->avatar ;
+    }
 }
