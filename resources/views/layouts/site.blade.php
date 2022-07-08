@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ mix('css/site/index.css') }}">
         <link rel="stylesheet" href="{{ mix('css/main.css') }}">
         <link rel="stylesheet" href="{{ mix('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/fonts/yekan_font.css') }}">
         <!-- Scripts -->
 
 

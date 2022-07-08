@@ -14,3 +14,19 @@
 body{
     background: -webkit-linear-gradient(right, #3931af, #00c6ff);
 }
+
+p{
+    font-family: vazir !important;
+    font-size: 15px;
+
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: yekan !important;
+    font-weight: 600 !important;
+}
+
+a{
+    font-family: yekan !important;
+    font-size: 17px ;
+}

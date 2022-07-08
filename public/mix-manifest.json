@@ -1,8 +1,10 @@
 {
-    "/js/app.js": "/js/app.js?id=c5dddbd237e263eec20a52045c6eae2b",
-    "/css/main.css": "/css/main.css?id=60771cb2bfb87e3986f8664097954316",
+    "/js/app.js": "/js/app.js?id=44b835699ec301dd6e627c50c80451fc",
+    "/css/main.css": "/css/main.css?id=7298bdf62a6ba8c4c90207a98acec46c",
     "/css/site/index.css": "/css/site/index.css?id=68b329da9893e34099c7d8ad5cb9c940",
     "/css/admin/index.css": "/css/admin/index.css?id=09ca338f1a1cc3671a3c179d7bd9b0e6",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css?id=c34efb0b55a1588788fd8d916fbc4373",
-    "/css/app.css": "/css/app.css?id=e49f31fdaa1468224f07ce26cca52e92"
+    "/css/app.css": "/css/app.css?id=e49f31fdaa1468224f07ce26cca52e92",
+    "/css/fonts/vazir_font.css": "/css/fonts/vazir_font.css?id=1717771e3de1847fe69175f997eec35c",
+    "/css/fonts/yekan_font.css": "/css/fonts/yekan_font.css?id=45286aabd7c1a3ce259f5cfca110b0fe"
 }
