@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',     [PostController::class, 'index']    )->name('posts');
+Route::get('/', [ArticleController::class, 'index'] )->name('articles');
+Route::get('/article/{id}', [ArticleController::class, 'show'] );
 
 Route::get('/dashboard', function () {
     return view('dashboard');

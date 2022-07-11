@@ -29,4 +29,22 @@ h1,h2,h3,h4,h5,h6{
 a{
     font-family: yekan !important;
     font-size: 17px ;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.fs-12{
+    font-size: 12px !important;
+}
+
+.opacity-7{
+    opacity: 0.7 !important;
+}
+
+input ,button{
+    font-family: vazir !important;
+}
+
+.resize-none{
+    resize: none;
 }

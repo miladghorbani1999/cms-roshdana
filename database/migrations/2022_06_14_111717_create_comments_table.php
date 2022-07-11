@@ -16,9 +16,12 @@ return new class extends Migration
     {
         Schema::create(CommentEnum::TABLE, function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger(CommentEnum::USER_ID);
             $table->string(CommentEnum::BODY);
             $table->morphs(CommentEnum::COMMENTABLE);
             $table->timestamps();
+
+            $table->foreign(CommentEnum::ID)->references(UserEnum::ID)->on(UserEnum::TABLE);
         });
     }
 

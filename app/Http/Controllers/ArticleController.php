@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
-use Arr;
+use Article;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $articles = Article::latest()->paginate(5);
-        return view('site.posts', compact('articles'));
-
+        return view('site.articles', compact('articles'));
     }
 
     /**
@@ -49,7 +47,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('site.article', compact('article'));
     }
 
     /**

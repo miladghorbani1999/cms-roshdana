@@ -30,7 +30,19 @@
 
             <!-- Page Content -->
             <main>
-                @yield('content')
+                <div style="background-color: white " class="col-11 mx-auto br-10 pb-4 mb-5 mt-5">
+                    <nav class="navbar navbar-expand-lg navbar-light col-11 mx-auto">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav ml-auto">
+                            <li class="nav-item {{Route::current()->getName()=='articles'?'active':''}}">
+                              <a class="nav-link" href="{{route('articles')}}">پست ها</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </nav>
+                    @yield('content')
+                </div>
+
             </main>
         </div>
     </body>

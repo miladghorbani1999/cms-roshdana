@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
 use App\Enums\Comment as CommentEnum;
+use User;
 
 class ArticleSeeder extends Seeder
 {
@@ -19,9 +20,10 @@ class ArticleSeeder extends Seeder
             ->each(function($article) {
 
                 //Append Random Comments:
-                Comment::factory()->count(rand(0, 5))->create([
+                Comment::factory()->count(rand(0, 4))->create([
                     CommentEnum::COMMENTABLE_TYPE => Article::class,
                     CommentEnum::COMMENTABLE_ID => $article->id,
+                    CommentEnum::USER_ID        => User::inRandomOrder()->first()->id,
                 ]);
 
                 //Append Random Tags:

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Barryvdh\LaravelIdeHelper\Eloquent;
+use Eloquent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 

@@ -7,7 +7,7 @@ function jalali_date($datetime): ?string{
 
 function jalali_date_format2($datetime): ?string{
     if (!$datetime) return null;
-    return jdate($datetime)->format('Y/m/d');
+    return jdate($datetime)->format('H:i - Y/m/d');
 }
 
 function convert_number_to_persian($number):string
