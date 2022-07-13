@@ -20,7 +20,7 @@ class ArticleSeeder extends Seeder
             ->each(function($article) {
 
                 //Append Random Comments:
-                Comment::factory()->count(rand(0, 4))->create([
+                Comment::factory()->count(rand(0, 3))->create([
                     CommentEnum::COMMENTABLE_TYPE => Article::class,
                     CommentEnum::COMMENTABLE_ID => $article->id,
                     CommentEnum::USER_ID        => User::inRandomOrder()->first()->id,

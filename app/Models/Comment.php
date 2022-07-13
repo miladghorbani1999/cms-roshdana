@@ -19,6 +19,7 @@ class Comment extends Model
         CommentEnum::BODY,
         CommentEnum::COMMENTABLE_ID,
         CommentEnum::COMMENTABLE_TYPE,
+        CommentEnum::USER_ID
     ];
 
     /**

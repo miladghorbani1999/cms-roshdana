@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-    <article class="detail-article col-12">
+    <article class="detail-article col-11 mx-auto pt-3">
 
         <div class="col-12">
             <img style="height: 450px" width="100%" class="rounded" src="{{asset($article->main_image_url)}}">
@@ -21,7 +21,7 @@
             </p>
             <p class="tags-article col-12 row">
                 @foreach ($article->tags as $tag)
-                <span class="alert alert-danger" role="alert">
+                <span class="alert" role="alert">
                     {{$tag->name}}
                 </span>
                 @endforeach
@@ -43,14 +43,31 @@
             </div>
             <div class="comment pt-4">
                 <h4>نظرات شما :</h4>
-                <form>
+                <div class="col-12 mt-2 p-0">
+                    @if($errors->any())
+                        <div class="alert alert-danger col-12">
+
+                            @foreach($errors->all() as $key => $error)
+                                {{ $error }}<br/>
+                            @endforeach
+                        </div>
+                    @endif
+
+                </div>
+                <form action="{{url('comment/insert/')}}" method="POST">
+                    @csrf
+                    @if( !Auth::check() )
                     <div class="form-group col-4 pr-0">
-                      <input type="email" class="form-control text-right" placeholder="نام شما">
+                      <input type="text" class="form-control text-right" name="name" placeholder="نام شما" value="{{old('name')}}">
+                    </div>
+                    @endif
+                    <div class="form-group">
+                      <textarea class="form-control resize-none" rows="3" name="body" placeholder="متن پیام شما ...">{{old('body')}}</textarea>
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control resize-none" rows="3" placeholder="متن پیام شما ..."></textarea>
-                    </div>
-                    <div class="d-flex justify-content-end">
+                        <input type="int" name="article" class="display-none" value="{{$article->id}}">
+                      </div>
+                    <div class="d-flex justify-content-end submit-comment">
                         <button type="submit" class="btn btn-primary text-left">ارسال پیام</button>
 
                     </div>
@@ -60,7 +77,7 @@
 
                         @foreach ($article->comments as $comment)
                             <p class="fs-12 opacity-7 pt-5">
-                                <span>{{$comment->user->full_name}}</span>
+                                <span>{{$comment->user->full_name??''}}</span>
                                 <span>در تاریخ {{convert_number_to_persian(jalali_date_format2($comment->created_at))}} نوشت:</span>
                             </p>
                             <p>{{$comment->body}}</p>

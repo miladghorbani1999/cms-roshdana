@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('', [ArticleController::class, 'index'] )->name('articles');
+Route::get('article/{id}', [ArticleController::class, 'show'] );
 
-Route::get('/', [ArticleController::class, 'index'] )->name('articles');
-Route::get('/article/{id}', [ArticleController::class, 'show'] );
+Route::post('comment/insert', [CommentController::class,'store']);
 
-Route::get('/dashboard', function () {
+Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 

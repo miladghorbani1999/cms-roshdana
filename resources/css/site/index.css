@@ -4,3 +4,32 @@
     padding: 0.1rem 0.8rem !important;
     margin-left: 10px;
 }
+
+.navbar-site nav div ul .register-author{
+    display: flex;
+    justify-content: left;
+    flex-grow: 1;
+}
+
+.navbar-site nav div ul .register-author a{
+    background-color: #f04e35 !important;
+    border: none;
+    color: white !important;
+}
+
+.page-item.active .page-link{
+    background-color: #f04e35 !important;
+    border: none;
+    color: white !important;
+}
+
+.detail-article .comment form .submit-comment button{
+    background-color: #f04e35 !important;
+    border: none;
+}
+
+.detail-article .tags-article span{
+    color: #f04e35 !important;
+    border: 0.1rem solid #f04e35 !important;
+    background-color: #fdeded !important;
+}
