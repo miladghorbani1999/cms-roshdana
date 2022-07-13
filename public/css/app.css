@@ -698,9 +698,6 @@ select {
 .mt-5 {
   margin-top: 1.25rem;
 }
-.ml-auto {
-  margin-left: auto;
-}
 .-mr-2 {
   margin-right: -0.5rem;
 }
@@ -993,6 +990,9 @@ select {
 .pb-4 {
   padding-bottom: 1rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -1013,9 +1013,6 @@ select {
 }
 .pl-3 {
   padding-left: 0.75rem;
-}
-.pt-3 {
-  padding-top: 0.75rem;
 }
 .pt-4 {
   padding-top: 1rem;
