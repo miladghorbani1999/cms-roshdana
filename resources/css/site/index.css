@@ -1,3 +1,7 @@
+:root {
+    --orange-main: #f04e35;
+    --orange-background: #fdeded;
+}
 .detail-article .tags-article span{
     border-radius: 7px !important;
     font-size: 12px !important;
@@ -12,24 +16,24 @@
 }
 
 .navbar-site nav div ul .register-author a{
-    background-color: #f04e35 !important;
+    background-color: var(--orange-main) !important;
     border: none;
     color: white !important;
 }
 
 .page-item.active .page-link{
-    background-color: #f04e35 !important;
+    background-color: var(--orange-main) !important;
     border: none;
     color: white !important;
 }
 
 .detail-article .comment form .submit-comment button{
-    background-color: #f04e35 !important;
+    background-color: var(--orange-main) !important;
     border: none;
 }
 
 .detail-article .tags-article span{
-    color: #f04e35 !important;
-    border: 0.1rem solid #f04e35 !important;
-    background-color: #fdeded !important;
+    color: var(--orange-main) !important;
+    border: 0.1rem solid var(--orange-main) !important;
+    background-color: var(--orange-background) !important;
 }
