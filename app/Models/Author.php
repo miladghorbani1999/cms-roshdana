@@ -39,7 +39,7 @@ class Author extends Model
 
     //=========     Accessors      =========//
 
-    public function getAvatarUrlAttribute():string{
-        return 'image/avatar/'. $this->user->avatar ;
+    public function getAvatarUrlAttribute(): string{
+        return '/image/avatar/'. $this->user->avatar ?? 'default.jpg' ;
     }
 }

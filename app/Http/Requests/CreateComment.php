@@ -26,7 +26,7 @@ class CreateComment extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+//            'name' => 'required',
             'body' => 'required','min:5',
             'article' => 'integer','min:1'
             // "کامنت"=>new Persian

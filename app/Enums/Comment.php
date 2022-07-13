@@ -11,4 +11,5 @@ class Comment extends BaseEnum
     const COMMENTABLE_TYPE = 'commentable_type';
     const COMMENTABLE      = 'commentable';
     const USER_ID          = 'user_id';
+    const NAME             = 'name';
 }

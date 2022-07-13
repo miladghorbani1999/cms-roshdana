@@ -19,7 +19,8 @@ class Comment extends Model
         CommentEnum::BODY,
         CommentEnum::COMMENTABLE_ID,
         CommentEnum::COMMENTABLE_TYPE,
-        CommentEnum::USER_ID
+        CommentEnum::USER_ID,
+        CommentEnum::NAME,
     ];
 
     /**
@@ -36,6 +37,11 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    //======    Accessors   ======
+    public function getAuthorNameAttribute(): string {
+        return $this->user_id ? $this->user->full_name : $this->name;
     }
 
 }

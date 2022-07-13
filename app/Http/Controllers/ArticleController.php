@@ -39,15 +39,8 @@ class ArticleController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('site.article', compact('article'));
     }
 

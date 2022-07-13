@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\User as UserEnum;
 use App\Http\Requests\CreateComment;
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\User;
 use Auth;
 use Comment;
@@ -38,19 +39,17 @@ class CommentController extends Controller
      * @param CreateComment $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(CreateComment $request)
+    public function store(Request $request, Article $article)
     {
-        $user_id = Auth::check()?Auth::id():null;
-        if (empty($user_id)){
-            $user_id = User::create(["first_name"=>$request->name])->id;
-        }
-        $comment = new Comment();
-        $comment->body = $request->body;
-        $comment->commentable_type = Article::class;
-        $comment->commentable_id   = $request->article;
-        $comment->user_id = $user_id;
-        $comment->save();
+
+        $article->comments()->create([
+            'body' => $request->body,
+            'name' => $request->name ?? null,
+            'user_id' => Auth::id() ?? null,
+        ]);
+
         return redirect()->back();
+
     }
 
     /**

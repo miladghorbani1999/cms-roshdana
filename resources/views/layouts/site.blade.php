@@ -25,7 +25,7 @@
 
     <!-- Page Heading -->
     <header class="text-white">
-        {{ $header ?? " " }}
+        {{ $header ?? "" }}
     </header>
 
     <!-- Page Content -->
@@ -50,8 +50,6 @@
 </div>
 </body>
 
-
 <script src="{{ mix('js/app.js') }}" defer></script>
-
 
 </html>

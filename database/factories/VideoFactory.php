@@ -19,14 +19,18 @@ class VideoFactory extends Factory
      */
     public function definition()
     {
+
+        $release_at = now()->subMinutes(rand(0, 525_600));
+
         return [
+            VideoEnum::AUTHOR_ID   => Author::inRandomOrder()->first('id')->id,
             VideoEnum::TITLE       => $this->faker->sentence,
-            videoEnum::DESCRIPTION => $this->faker->text,
-            VideoEnum::MAIN_IMAGE  => basename($this->faker->image(storage_path('app/public'))),
-            videoEnum::DURATION    => $this->faker->numberBetween(1000,100000),
-            videoEnum::RELEASE_AT  => now(),
-            videoEnum::UID         => $this->faker->uuid,
-            videoEnum::MAIN_IMAGE  => Arr::random(['sample1.jpg', 'sample2.jpg', 'sample3.jpg', null, null]),
+            VideoEnum::DESCRIPTION => $this->faker->text,
+            VideoEnum::DURATION    => $this->faker->numberBetween(1_000,100_000),
+            VideoEnum::RELEASE_AT  => $release_at,
+            VideoEnum::UID         => $this->faker->uuid,
+            VideoEnum::MAIN_IMAGE  => Arr::random(['sample1.jpg', 'sample2.jpg', 'sample3.jpg', null, null]), //Use Storage::files
+            VideoEnum::CREATED_AT  => $release_at->subMinutes(rand(0, 7_200))
         ];
     }
 }

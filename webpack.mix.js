@@ -33,3 +33,6 @@ mix.postCss('resources/css/fonts/yekan_font.css','public/css/fonts/').options({
 mix.postCss('resources/css/fonts/vazir_font.css','public/css/fonts/').options({
     processCssUrls: false
 }).version();
+
+
+mix.disableNotifications();
