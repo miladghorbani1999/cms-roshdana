@@ -21,11 +21,17 @@
     color: white !important;
 }
 
-.page-item.active .page-link{
+.pagination .page-item.active .page-link{
     background-color: var(--orange-main) !important;
     border: none;
     color: white !important;
 }
+
+.pagination .page-item .page-link{
+
+    color: black !important;
+}
+
 
 .detail-article .comment form .submit-comment button{
     background-color: var(--orange-main) !important;
@@ -36,4 +42,16 @@
     color: var(--orange-main) !important;
     border: 0.1rem solid var(--orange-main) !important;
     background-color: var(--orange-background) !important;
+}
+
+.navbar-site nav div ul li a{
+    font-size: 12px ;
+}
+
+article a{
+    color: black !important;
+}
+
+.color-or-main{
+    color: var(--orange-main) !important;
 }

@@ -12,7 +12,7 @@
 }
 
 body{
-    background: -webkit-linear-gradient(right, #3931af, #00c6ff);
+    background: #F8F8F8 !important;
 }
 
 p{
@@ -29,7 +29,7 @@ h1,h2,h3,h4,h5,h6{
 a{
     font-family: vazir !important;
     text-decoration: none !important;
-    color: black !important;
+    color: black;
 }
 
 .fs-12{
@@ -50,4 +50,24 @@ input ,button{
 
 .display-none{
     display: none !important;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.bg-white{
+    background-color: white !important;
+}
+
+.fs-14{
+    font-size: 14px !important;
+}
+
+.border-dot-bottom{
+    border-bottom: 2px dotted #000;
+}
+
+.border-line-bottom{
+    border-bottom: 1px solid #000;
 }

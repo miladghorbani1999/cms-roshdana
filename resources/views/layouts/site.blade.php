@@ -30,19 +30,29 @@
 
     <!-- Page Content -->
     <main>
-        <div style="background-color: white " class="col-11 mx-auto br-10 pb-4 mb-5 mt-5 navbar-site">
+        <div  class="col-12 mx-auto br-10 pb-4 mb-5 mt-5 navbar-site">
             <nav class="navbar navbar-expand-lg navbar-light col-11 mx-auto">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav col-12 pt-3">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{route('articles')}}">پست ها</a>
+                        <li class="nav-item pr-1 {{Request::routeIs('articles') ? 'active text-bold' : ''}}">
+                            <a class="nav-link fs-12 text-bold {{Request::routeIs('articles') ? 'border-line-bottom pb-0 pl-0 pr-0' : ''}}" href="{{route('articles')}}">پست ها</a>
+                        </li>
+                        <li class="nav-item pr-4" >
+                            <a class="nav-link fs-12 text-bold " href="">نمونه‌کارهای‌من</a>
+                        </li>
+                        <li class="nav-item pr-4">
+                            <a class="nav-link fs-12 text-bold " href="">درباره‌من</a>
+                        </li>
+                        <li class="nav-item pr-4 ">
+                            <a class="nav-link fs-12 text-bold " href="">ارتباط‌با‌من</a>
                         </li>
                         <li class="nav-item register-author">
-                            <a class="btn btn-primary" href="#" role="button">ثبت‌نام در خبرنامه</a>
+                            <a class="btn btn-primary" href="#" role="button">ثبت‌نام‌در‌خبرنامه</a>
                         </li>
                     </ul>
                 </div>
             </nav>
+            @yield('top-content')
             @yield('content')
         </div>
 

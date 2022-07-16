@@ -25,9 +25,9 @@ class Tag extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function articles()
+    public function articles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Article::class, TageEnum::TABLE_ARTICLE_TAG, TageEnum::TAG_ID, TageEnum::ARTICLE_ID);
+        return $this->belongsToMany(Article::class);
 
     }
 

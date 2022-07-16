@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Article;
+use App\Models\Author;
 use Illuminate\Http\Request;
-use App\Enums\Article as ArticleEnum;
-class ArticleController extends Controller
+
+class AuthorContrllor extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->paginate(5);
-        return view('site.articles', compact('articles'));
+        //
     }
 
     /**
@@ -39,11 +38,15 @@ class ArticleController extends Controller
         //
     }
 
-    public function show(Article $article)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-
-        $article = Article::findOrFail($article->id);
-        return view('site.article', compact('article'));
+        //
     }
 
     /**
@@ -78,5 +81,13 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function articles_author(Author $author){
+        $articles = Author::findOrFail($author->id)->articles()->paginate(5);
+        $detail_page = [
+            'title' => ' مقاله های مرتبط با نویسنده  '.$author->user->full_name
+        ];
+        return view('site.articles', compact('articles','detail_page'));
     }
 }
