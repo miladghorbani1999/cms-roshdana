@@ -7,6 +7,7 @@ use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\Article as ArticleEnum;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
@@ -20,6 +21,7 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
+        $random_file = explode('/',Arr::random(Storage::disk('public')->files('images/posts')));
         return [
 
             ArticleEnum::AUTHOR_ID       =>     Author::inRandomOrder()->first('id')->id,
@@ -30,7 +32,7 @@ class ArticleFactory extends Factory
             ArticleEnum::STATUS          =>     $this->faker->randomElement(ArticleEnum::STATUS_TYPE),
             ArticleEnum::RELEASE_AT      =>     now()->subMinutes(rand(0, 525600)), //~ Last 354 days
             ArticleEnum::IS_COMMENTABLE  =>     $this->faker->boolean(),
-            ArticleEnum::MAIN_IMAGE      =>     'post'.rand(0,10).'.png',
+            ArticleEnum::MAIN_IMAGE      =>     $random_file[2],
 
         ];
     }

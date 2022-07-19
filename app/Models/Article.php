@@ -51,7 +51,7 @@ class Article extends Model
 
     public function getMainImageUrlAttribute():string
     {
-        return 'image/posts/'.$this->main_image;
+        return '/storage/images/posts/'.$this->main_image;
     }
 
 

@@ -18,15 +18,15 @@ class AdminSeeder extends Seeder
     {
 
         //یک ادمین مشخص با اطللاعات خاص برای آزمایش
-        Admin::factory()
-            ->for(User::factory()->state([
-                UserEnum::FirstName => 'میلاد',
-                UserEnum::LAST_NAME => 'قربانی',
-                UserEnum::IMAGE => 'ghorbani.jpg',
-                UserEnum::EMAIL => 'ghorbani@gmail.com',
-                UserEnum::MOBILE => '09120000000',
-                UserEnum::PASSWORD => bcrypt('123456'),
-            ]))->create();
+//        Admin::factory()->count(1)
+//            ->for(User::factory()->state([
+//                UserEnum::FirstName => 'میلاد',
+//                UserEnum::LAST_NAME => 'قربانی',
+//                UserEnum::IMAGE => 'ghorbani.jpg',
+//                UserEnum::EMAIL => 'ghorbani@gmail.com',
+//                UserEnum::MOBILE => '09120000000',
+//                UserEnum::PASSWORD => bcrypt('123456'),
+//            ]))->create();
 
         //سه ادمین بصورت رندوم
         Admin::factory()->count(3)->create();
